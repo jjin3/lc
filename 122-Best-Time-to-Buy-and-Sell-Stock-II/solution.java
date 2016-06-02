@@ -1,7 +1,9 @@
 // love this problem. STOCK and MONEY!
 // find the increasing sequence and record the difference between the minimum and maxium. 
-// example1: [2,1,3,7,9,6,5,1]  This is a very good test case, decreasing at the end. 
+// example1: [2,1,3,7,9,6,5,1]  Tricky test case: This is a very good test case, decreasing at the end. 
 // example2: [1,3,7,9,6,5,10,15]  This is a very good test case, increasing at the end. 
+
+// 2ms run time. Very good!
 
 
 public class Solution {
