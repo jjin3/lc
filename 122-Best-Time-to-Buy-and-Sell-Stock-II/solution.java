@@ -13,21 +13,16 @@ public class Solution {
         while (i<prices.length-1) {
             while (i<prices.length-1 && prices[i] >= prices[i+1])  // in decreasing order
                 i++;
-            System.out.println("i for buy=" + i);
-
             buy = i; // low point
-            System.out.println("Buy at:" + prices[buy]);
             i++;
             while (i<prices.length-1 && prices[i+1] >= prices[i])  // in increasing order
                 i++; 
-            if (i<prices.length) 
+            if (i<prices.length)  
                 sell = i; 
-            System.out.println("Sell at:" + prices[sell]);
+                
             if (sell > buy)  //If statement needed for this test case: [2,1,3,7,9,6,5,1]
                 sum = sum + (prices[sell]-prices[buy]);
             i++;
-            System.out.println("i=" + i);
-
         }
         return sum; 
     }
