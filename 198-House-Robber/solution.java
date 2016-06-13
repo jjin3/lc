@@ -28,6 +28,8 @@ maxProfit[i] = Math.max(nums[i] + maxProfit[i-2], maxProfit[i-1]);
 
 */
 
+// This solution builds an array of maxProfit, it creates more space complexity, but it's more readable and the entire array value is accessible. This solution and the solution below has tradeoffs. 
+
 public class Solution {
      public static int rob(int[] nums) {
          //  nums_{1}, nums_{2},..., nums_{i}..., nums{n}
