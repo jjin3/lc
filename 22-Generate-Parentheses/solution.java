@@ -1,21 +1,25 @@
 /*
 Create a new list
 1st parenthesis
-( // Accepted, append to the element in the list
+( // Accepted
 ) // NOT acceptable
 
 Add 2nd parenthesis to the 1st, 
-(( // Accepted, append to the element in the list
-() // Accepted, append to the element in the list
+(( // Accepted
+() // Accepted
 
 Add 3rd parenthesis to the previous two.
-(() // Accepted, append to the element in the list
-((( // Accepted, append to the element in the list
-()( // Accepted, append to the element in the list
+(() // Accepted
+((( // Accepted
+()( // Accepted
 ()) // NOT acceptable
 
+Termination condition
+()()() rightCount == leftCount == n
+
+
 What's the rule to determine if adding a left or right parenthesis is acceptable? 
-"(": It's always okay to add a left parenthesis because the input is in pairs.
+"(": It's always okay to add a left parenthesis (as long as it is less than n) because the input is in pairs. 
 ")": Only if number of left parenthesis (leftCount) is greater than right parenthesis.
      In other words, add a ")" such that leftCount > rightCount
 
