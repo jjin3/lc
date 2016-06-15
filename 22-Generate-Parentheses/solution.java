@@ -1,21 +1,52 @@
-   public class Solution {
+/*
+Create a new list
+1st parenthesis
+( // Accepted, append to the element in the list
+) // NOT acceptable
 
- public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<String>();
-        backtrack(list, "", 0, 0, n);
-        return list;
+Add 2nd parenthesis to the 1st, 
+(( // Accepted, append to the element in the list
+() // Accepted, append to the element in the list
+
+Add 3rd parenthesis to the previous two.
+(() // Accepted, append to the element in the list
+((( // Accepted, append to the element in the list
+()( // Accepted, append to the element in the list
+()) // NOT acceptable
+
+What's the rule to determine if adding a left or right parenthesis is acceptable? 
+"(": It's always okay to add a left parenthesis because the input is in pairs.
+")": Only if number of left parenthesis (leftCount) is greater than right parenthesis.
+     In other words, add a ")" such that leftCount > rightCount
+
+*/
+
+public class Solution {
+    public List<String> generateParenthesis(int n) {
+        // only initiate one arraylist so we don't have to create multiple lists. 
+        ArrayList<String> res = new ArrayList<String>();
+        
+        generateParenthese(res, n, 0, 0, "");
+        return res;
     }
+    
+    // the last parameter, why StringBuffer s does not work? Mutable VS Immutable String
+    public List<String> generateParenthese(ArrayList<String> res, int n, int leftCount, int rightCount, String s) {
+        
+        // termination condition
+        if (leftCount == n && rightCount == n ) 
+            res.add(s);
 
-    public void backtrack(List<String> list, String str, int open, int close, int max){
-
-        if(str.length() == max*2){
-            list.add(str);
-            return;
+        // Recursively add "(" or ")"
+        if (leftCount < n )
+            // left parenthesis add anytime as it does not break the matching syntax.
+            generateParenthese(res, n, leftCount+1, rightCount, s+"(");
+      
+        // acceptable criteria for adding ")"
+        if (rightCount < leftCount) {
+            generateParenthese(res, n, leftCount, rightCount+1, s+")");
         }
-
-        if(open < max)
-            backtrack(list, str+"(", open+1, close, max);
-        if(close < open)
-            backtrack(list, str+")", open, close+1, max);
+        
+        return res;
     }
 }
