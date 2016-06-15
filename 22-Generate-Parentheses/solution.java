@@ -25,7 +25,6 @@ public class Solution {
     public List<String> generateParenthesis(int n) {
         // only initiate one arraylist so we don't have to create multiple lists. 
         ArrayList<String> res = new ArrayList<String>();
-        
         generateParenthese(res, n, 0, 0, "");
         return res;
     }
@@ -45,7 +44,6 @@ public class Solution {
         if (rightCount < leftCount) {
             generateParenthese(res, n, leftCount, rightCount+1, s+")");
         }
-        
         return res;
     }
 }
