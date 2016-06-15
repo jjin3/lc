@@ -1,6 +1,6 @@
 /*
 
-This approach has a really low performance. 
+This approach has a really low performance O(n)
 
 Question E-121	Best Time to Buy and Sell Stock
 
