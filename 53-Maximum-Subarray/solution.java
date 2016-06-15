@@ -28,7 +28,7 @@ public class Solution {
 
 
         int[] sums = getSumRange(nums);
-        int minSum = 0; // the current minimum Sum.
+        int minSum = Math.min(0,sums[0]); // the current minimum Sum, this value is an "imagined" value before sum[0]. 
         
         System.out.println("Current min sum:" + sums[0]);
         int maxSumDiff = sums[0];
