@@ -35,9 +35,8 @@ public class Solution {
         int[] sums = getSumRange(nums);
         int minSum = Math.min(0,sums[0]); // the current minimum Sum, this value is an "imagined" value before sum[0]. 
         
-        System.out.println("Current min sum:" + sums[0]);
-        int maxSumDiff=0;
-        int maxSumDiff_Prev = sums[0];
+        int maxSumDiff=Integer.MIN_VALUE; // given any value
+        int maxSumDiff_Prev = sums[0]; // the first element should be the max initially. 
         
         for (int i=1; i<sums.length; i++) {
             
@@ -62,10 +61,6 @@ public class Solution {
         for (int i=1; i<nums.length; i++) {
             sums[i] = sums[i-1] + nums[i];
             
-        }
-        
-        for (int i=0; i<nums.length; i++) {
-            System.out.println(sums[i]);
         }
         
         return sums;
