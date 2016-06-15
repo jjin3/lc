@@ -28,10 +28,10 @@ public class Solution {
 
 
         int[] sums = getSumRange(nums);
-        int minSum = sums[0]; // the current minimum Sum.
+        int minSum = 0; // the current minimum Sum.
         
         System.out.println("Current min sum:" + sums[0]);
-        int maxSumDiff = Integer.MIN_VALUE;
+        int maxSumDiff = sums[0];
         int maxSumDiff_Prev = Integer.MIN_VALUE;
         
         for (int i=1; i<sums.length; i++) {
