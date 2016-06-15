@@ -13,6 +13,11 @@ sums array: [-2,-1,-4,0,-1,1,2,-3,1]
 Sum range:
 sums(2,6) = 2 - (-4) = 6
 
+Potential test cases. 
+test cases: Goes up [1,2,3,4,5] and [-5,-4,-3,-2,-1]
+test cases: Goes down [5,4,3,2,1] and [-1,-2,-3,-4,-5]
+test case: multiple peaks [1,3,1,5,2,4] and [-1,-3,-1,-5,-2,-4]
+
 */
 
 public class Solution {
@@ -31,8 +36,8 @@ public class Solution {
         int minSum = Math.min(0,sums[0]); // the current minimum Sum, this value is an "imagined" value before sum[0]. 
         
         System.out.println("Current min sum:" + sums[0]);
-        int maxSumDiff = sums[0];
-        int maxSumDiff_Prev = Integer.MIN_VALUE;
+        int maxSumDiff=0;
+        int maxSumDiff_Prev = sums[0];
         
         for (int i=1; i<sums.length; i++) {
             
