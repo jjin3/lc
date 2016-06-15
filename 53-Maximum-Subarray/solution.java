@@ -1,5 +1,7 @@
 /*
 
+This approach has a really low performance. 
+
 Question E-121	Best Time to Buy and Sell Stock
 
 +
