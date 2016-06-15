@@ -1,28 +1,21 @@
-public class Solution
-{
-    public List<String> generateParenthesis(int n)
-    {
-        List<List<String>> lists = new ArrayList<>();
-        lists.add(Collections.singletonList(""));
+   public class Solution {
 
-        for (int i = 1; i <= n; ++i)
-        {
-            final List<String> list = new ArrayList<>();
+ public List<String> generateParenthesis(int n) {
+        List<String> list = new ArrayList<String>();
+        backtrack(list, "", 0, 0, n);
+        return list;
+    }
 
-            for (int j = 0; j < i; ++j)
-            {
-                for (final String first : lists.get(j))
-                {
-                    for (final String second : lists.get(i - 1 - j))
-                    {
-                        list.add("(" + first + ")" + second);
-                    }
-                }
-            }
+    public void backtrack(List<String> list, String str, int open, int close, int max){
 
-            lists.add(list);
+        if(str.length() == max*2){
+            list.add(str);
+            return;
         }
 
-        return lists.get(lists.size() - 1);
+        if(open < max)
+            backtrack(list, str+"(", open+1, close, max);
+        if(close < open)
+            backtrack(list, str+")", open, close+1, max);
     }
 }
