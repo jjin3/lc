@@ -32,11 +32,11 @@ public class Solution {
     
     public List<String> generateParenthese(ArrayList<String> res, int n, int leftCount, int rightCount, String s) {
         
-        // termination condition
+        // termination condition. Left and right parenthesis have equal numbers, and all n pairs must be presented in the final string. 
         if (leftCount == rightCount && leftCount == n ) 
             res.add(s);
 
-        // Recursively add "(" or ")"
+        // Recursively add "(" or ")", if condition determines the degree of recursive calls. depth is n.
         if (leftCount < n )
             // left parenthesis add anytime as it does not break the matching syntax.
             generateParenthese(res, n, leftCount+1, rightCount, s+"(");
