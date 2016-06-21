@@ -10,6 +10,10 @@ n=4: 0    1  11  10  110  111  101  100   (not changed, and add '1' from n=3 lis
 
 Run time: each time there is 2^(n-1) numbers added to the list. So runtime looks like 2+2^2+2^3+...+2^(n-1) = 2^n. Very good!
 
+ArrayList: arraylist.get(i) is O(1) time complexity, because ArrayList is implemented by a resizable array.
+LinkedList: Remove the head (I assume) Iterator.remove() is O(1) <--- main benefit of LinkedList<E>
+More reading on http://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist
+
 */
 
 
