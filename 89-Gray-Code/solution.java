@@ -7,6 +7,9 @@ n=2: 0  1  11  10
 n=3: 0    1  11  10 (not changed, theoretically think of it as adding a "0" to the begining of the list, and add '1' from n=2 list in reverse order to create the second part of the sequence, which is  (1)10   (1)11   (1)01   (1)00
 
 n=4: 0    1  11  10  110  111  101  100   (not changed, and add '1' from n=3 list in reverse order to create the second part of the sequence, which is  (1)100  (1)101  (1)111  (1)110  (1)010  (1)011  (1)001  (1)000
+
+Run time: each time there is 2^(n-1) numbers added to the list. So runtime looks like 2+2^2+2^3+...+2^(n-1) = 2^n. Very good!
+
 */
 
 
