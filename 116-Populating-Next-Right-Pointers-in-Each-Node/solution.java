@@ -29,7 +29,7 @@ public class Solution {
         connect(level+1, root.right, hm);
     }
     
-    public head addToListTail(TreeLinkNode head, TreeLinkNode node){
+    public TreeLinkNode addToListTail(TreeLinkNode head, TreeLinkNode node){
         while (head.next!=null)
             head = head.next;
         head.next = node;
