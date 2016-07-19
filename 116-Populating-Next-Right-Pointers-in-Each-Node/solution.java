@@ -22,7 +22,7 @@ public class Solution {
             hm.put(level, root);
         }
         else {
-            hm.get(level).addToListTail(hm.get(level), root);
+            addToListTail(hm.get(level), root);
         }
         
         connect(level+1, root.left, hm);
