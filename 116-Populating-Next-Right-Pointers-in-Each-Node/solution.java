@@ -19,10 +19,10 @@ public class Solution {
         if (root == null) return;
         
         if (!hm.containsKey(level)) {
-            hm.put(level, node);
+            hm.put(level, root);
         }
         else {
-            hm.get(level).addToListTail(hm.get(level), node);
+            hm.get(level).addToListTail(hm.get(level), root);
         }
         
         connect(level+1, root.left, hm);
