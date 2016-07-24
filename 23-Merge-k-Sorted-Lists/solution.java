@@ -25,13 +25,9 @@ public class Solution {
         ListNode res = null;
         ListNode tail = null;
 
-        
-        // Covert a list[] array to Arraylist for simpler removal later. 
-        ArrayList<ListNode> input = new ArrayList<ListNode>(lists.length);
         for (ListNode list : lists) {   // O(K)
             if (list != null) {
-                input.add(list);   
-                minHeap.add(list); // add initial K element to the minHeap. 
+                minHeap.add(list); // add initial K head element to the minHeap. 
             } 
         }
         
@@ -58,8 +54,8 @@ public class Solution {
                 }
                     
                     // whoever being polled, I want it's next element: This is the right element being insert to minHeap agai.
-                    if (node.next != null)
-                        minHeap.add(node.next); // Trim the original lists. This null list should be removed from the input lists array. 
+                if (node.next != null)
+                    minHeap.add(node.next); // Trim the original lists. This null list should be removed from the input lists array. 
             }
         
         return res;
