@@ -36,13 +36,16 @@ public class Solution {
         }
         
         // THis is the poll process
-        while (!minHeap.isEmpty()) {
-            // An important question is, how to move listNode element and add new element to minHeap? 
+                    // An important question is, how to move listNode element and add new element to minHeap? 
             // The first thought is round robin to pop() element from each list, and add to the minHeap. however, this is not correct, think of an exmaple (1->2->3), (11->12->13) , (21->22->23), First time add 1, 11 and 21, the second time add 2, 12 and 22. this will be out of order, 1, 2, 11, 12,...3,...
             // The figure xx shows the idea of getting the right order 
             
             // before add new element to the minHeap, Extract minimum value from minHeap: minHeap.poll()
             // This guarantees to be the smallest among all candidate nodes because we add the first node of all lists to minHeap as the initial state. 
+        
+        
+        while (!minHeap.isEmpty()) {
+
             ListNode node = minHeap.poll(); // O(log(k))
                     
             // right after it polls, immediately add to result list.
