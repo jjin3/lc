@@ -46,13 +46,13 @@ public class Solution {
             ListNode node = minHeap.poll(); // O(log(k))
                     
             // right after it polls, immediately add to result list.
-            if (res == null) {
-                res = node;
-                tail = res;
-            }
-            else {
+            if (res != null) {
                 tail.next = node;
                 tail = tail.next;
+            }
+            else {
+                res = node;
+                tail = res;
             }
                     
             // whoever being polled, we want it's next element: This is the exact element should be inserted to minHeap agai.
