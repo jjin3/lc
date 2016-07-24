@@ -54,11 +54,9 @@ public class Solution {
                         res = res.next;
                     }
                     
-                    // whoever being polled, I want it's next element: This is the right element being insert to minHeap again. 
-                    minHeap.add(node.next);
-                }
-                else { // Trim the original lists. This null list should be removed from the input lists array. 
-                    input.remove(null);
+                    // whoever being polled, I want it's next element: This is the right element being insert to minHeap agai.
+                    if (node.next != null)
+                        minHeap.add(node.next); // Trim the original lists. This null list should be removed from the input lists array. 
                 }
             }
         }
