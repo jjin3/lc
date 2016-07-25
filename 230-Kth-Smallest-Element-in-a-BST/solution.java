@@ -8,22 +8,23 @@
  * }
  */
 public class Solution {
+  //Binary Search (dfs): most preferable
 
-    public int kthSmallest(TreeNode root, int k) {
-        return findKth(root, k, 0);
+
+  public int kthSmallest(TreeNode root, int k) {
+        int count = countNodes(root.left);
+        if (k <= count) {
+            return kthSmallest(root.left, k);
+        } else if (k > count + 1) {
+            return kthSmallest(root.right, k-1-count); // 1 is counted as current node
+        }
+        
+        return root.val;
     }
     
-    public int findKth(TreeNode root, int K, int step) {
+    public int countNodes(TreeNode n) {
+        if (n == null) return 0;
         
-        if (root == null) 
-            return Integer.MAX_VALUE;
-        
-        if (findKth(root.left, K, step+1) == Integer.MAX_VALUE) // did not find the right val
-            return Integer.MAX_VALUE;
-            
-        if (step==K) return root.val;
-        
-        if (findKth(root.right, k, step+1) == Integer.MAX_VALUE)
-            return Integer.MAX_VALUE;
+        return 1 + countNodes(n.left) + countNodes(n.right);
     }
 }
