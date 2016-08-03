@@ -1,33 +1,23 @@
 public class MovingAverage {
+    private ArrayDeque<Integer> queue;
+    private int size;
+    private double sum;
 
-    public int windowSize = 0;
-    private LinkedList<Integer> arr; 
-    
     /** Initialize your data structure here. */
     public MovingAverage(int size) {
-        arr = new LinkedList<Integer>(); 
-        this.windowSize = size;
+        this.queue = new ArrayDeque<Integer>();
+        this.size = size;
+        this.sum = 0;
     }
-    
+
     public double next(int val) {
-
-        int n = 0; 
-        arr.add(val);    
-
-        // Continue to add new elements without deleting the previous element. 
-        if (arr.size() <= this.windowSize) {
-            n = arr.size();
+        queue.offer(val);
+        sum += val;
+        if (queue.size() > size) {
+        	sum -= queue.removeFirst();
         }
-        else if (arr.size() > this.windowSize) {
-            arr.poll();
-            n = this.windowSize; 
-        }
-
-        int sum = 0; 
-        for (Integer num : arr) {
-           sum = sum + num;
-        }
-        return (1.00000) * sum / n;
+    
+	    return sum / (size > queue.size() ? queue.size() : size);
     }
 }
 
