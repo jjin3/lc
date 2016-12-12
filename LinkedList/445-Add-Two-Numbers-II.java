@@ -23,6 +23,7 @@ public class Solution {
         int sum = 0;
         int carry = 0; 
         ListNode head = null; 
+        
         while(!s1.isEmpty() || !s2.isEmpty()) {
             
             if (!s1.isEmpty() && !s2.isEmpty())
@@ -34,17 +35,16 @@ public class Solution {
                 
             ListNode newNode = new ListNode(sum%10); 
             
-            if (head == null) {
+            if (head == null)
                 head = newNode; 
-            }
             else {
-                //System.out.println("printout");
                 newNode.next = head; 
                 head=newNode; 
             }
             carry = sum/10; 
         }
         
+        // The highest digit. 
         if (s1.isEmpty() && s2.isEmpty() && carry==1) {
             ListNode newNode = new ListNode(carry);
             newNode.next = head; 
