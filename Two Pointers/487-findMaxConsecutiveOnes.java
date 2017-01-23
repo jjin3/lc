@@ -1,7 +1,7 @@
 public class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
         
-        
+        // FYI: another very clean solution: https://discuss.leetcode.com/topic/75439/java-concise-o-n-time-o-1-space
         
         int pre_zero = -1; 
         int left = 0;   // number of ones of to the left side of current zero. 
