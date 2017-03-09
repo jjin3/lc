@@ -19,15 +19,18 @@ y87665434
 public class Solution {
     public int minDistance(String word1, String word2) {
         
-        int grid[][] = new int[word1.length()+1][word2.length()+1];  // m rows and n columns
+        int r = word1.length(); 
+        int c = word2.length();
+        
+        int grid[][] = new int[r+1][c+1];  // m rows and n columns
 
-        for (int i=0; i<=word1.length(); i++) 
+        for (int i=0; i<=r; i++) 
             grid[i][0] = i; 
-        for (int j=0; j<=word2.length(); j++) 
+        for (int j=0; j<=c; j++) 
             grid[0][j] = j; 
 
-        for (int i=1; i<=word1.length(); i++) 
-            for (int j=1; j<=word2.length(); j++) {
+        for (int i=1; i<=r; i++) 
+            for (int j=1; j<=c; j++) {
                 if (word1.charAt(i-1) == word2.charAt(j-1))  
                     grid[i][j] = grid[i-1][j-1]; 
                 
@@ -35,13 +38,6 @@ public class Solution {
                     grid[i][j] = Math.min(Math.min(grid[i-1][j-1], grid[i][j-1]), grid[i-1][j]) + 1; 
                 }
             }
-            
-        for (int i=0; i<=word1.length(); i++) {
-            for (int j=0; j<=word2.length(); j++)
-                System.out.print(grid[i][j]);    
-            System.out.println();
-        }
-            
-        return grid[word1.length()][word2.length()];
+        return grid[r][c];
     }
 }
